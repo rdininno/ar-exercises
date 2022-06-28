@@ -16,3 +16,12 @@ puts Employee.create(:hourly_rate => 50).valid?
 puts Employee.create(:hourly_rate => 15).valid?
 puts Employee.create(:store_id => 2).valid?
 puts Employee.create(:store_id => nil).valid?
+
+puts Store.create(:name => "su").valid?
+puts Store.create(:annual_revenue => -1).valid?
+puts Store.create(:name => "surrey", :annual_revenue => 1000).valid? # will be true
+
+storeName = gets.chomp
+
+store7 = Store.create(name: "#{storeName}")
+puts store7.errors.details
